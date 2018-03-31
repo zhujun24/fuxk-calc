@@ -1,0 +1,46 @@
+{
+  "name": "fuxk-calc",
+  "version": "0.0.1",
+  "description": "A js library for accurate math calculate.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhujun24/fuxk-calc.git"
+  },
+  "keywords": [
+    "JS Calculate"
+  ],
+  "author": "zhujun24",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhujun24/fuxk-calc/issues"
+  },
+  "homepage": "https://github.com/zhujun24/fuxk-calc#readme",
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-async-to-generator": "^6.8.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.2.0",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^5.2.2",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-eslint": "^19.0.0",
+    "load-grunt-tasks": "^3.5.0",
+    "mocha": "^3.0.2",
+    "pre-commit": "^1.1.3"
+  },
+  "scripts": {
+    "test": "mocha test/index",
+    "lint": "eslint ."
+  },
+  "pre-commit": [
+    "lint"
+  ]
+}

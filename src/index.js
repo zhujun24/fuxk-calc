@@ -1,12 +1,11 @@
-// js 浮点数加减精确加减计算
-
+// padStart & padEnd 无需判断 string.length > targetLength，调用方已经处理
 const padStart = (string, targetLength, padString) => {
   // truncate if number or convert non-number to 0
   targetLength = targetLength >> 0;
   padString = String((typeof padString !== 'undefined' ? padString : ' '));
-  if (string.length > targetLength) {
-    return String(string);
-  }
+  // if (string.length > targetLength) {
+  //   return String(string);
+  // }
   targetLength = targetLength - string.length;
   if (targetLength > padString.length) {
     // append to original to ensure we are longer than needed
@@ -19,9 +18,9 @@ const padEnd = (string, targetLength, padString) => {
   // floor if number or convert non-number to 0
   targetLength = targetLength >> 0;
   padString = String((typeof padString !== 'undefined' ? padString : ' '));
-  if (string.length > targetLength) {
-    return String(string);
-  }
+  // if (string.length > targetLength) {
+  //   return String(string);
+  // }
   targetLength = targetLength - string.length;
   if (targetLength > padString.length) {
     // append to original to ensure we are longer than needed
@@ -53,10 +52,10 @@ export default class fuxkCalc {
       // input invalid
       return false;
     }
-    if (this.typeCheck(a) && this.typeCheck(b)) {
-      // must have a floating point
-      return a + b;
-    }
+    // if (this.typeCheck(a) && this.typeCheck(b)) {
+    //   // must have a floating point
+    //   return a + b;
+    // }
 
     let intA;
     let intB;
@@ -83,10 +82,10 @@ export default class fuxkCalc {
       // input invalid
       return false;
     }
-    if (this.typeCheck(a) && this.typeCheck(b)) {
-      // must have a floating point
-      return a - b;
-    }
+    // if (this.typeCheck(a) && this.typeCheck(b)) {
+    //   // must have a floating point
+    //   return a - b;
+    // }
 
     let shouldReverse = b > a;
     let delta;
@@ -123,5 +122,43 @@ export default class fuxkCalc {
       }
     }
     return this.toFloat(shouldReverse ? `-${delta}` : delta);
+  }
+
+  multiply(a, b) {
+    if (!this.safeCheck(a) || !this.safeCheck(b)) {
+      // input invalid
+      return false;
+    }
+    // if (this.typeCheck(a) && this.typeCheck(b)) {
+    //   // must have a floating point
+    //   return a * b;
+    // }
+
+    a = a.toString().replace(/0*$/, '');
+    b = b.toString().replace(/0*$/, '');
+    let floatA = a.split('.')[1] || '';
+    let floatB = b.split('.')[1] || '';
+
+    let pow = floatA.length + floatB.length;
+    return (this.toInt(a.replace('.', '')) * this.toInt(b.replace('.', ''))) / Math.pow(10, pow);
+  }
+
+  divide(a, b) {
+    if (!this.safeCheck(a) || !this.safeCheck(b)) {
+      // input invalid
+      return false;
+    }
+    // if (this.typeCheck(a) && this.typeCheck(b)) {
+    //   // must have a floating point
+    //   return a / b;
+    // }
+
+    a = a.toString().replace(/0*$/, '');
+    b = b.toString().replace(/0*$/, '');
+    let floatA = a.split('.')[1] || '';
+    let floatB = b.split('.')[1] || '';
+
+    let pow = floatA.length - floatB.length;
+    return (this.toInt(a.replace('.', '')) / this.toInt(b.replace('.', ''))) / Math.pow(10, pow);
   }
 }

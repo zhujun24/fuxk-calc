@@ -1,6 +1,6 @@
 {
   "name": "fuxk-calc",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A js library for accurate math calculate.",
   "main": "index.js",
   "repository": {
@@ -8,7 +8,9 @@
     "url": "git+https://github.com/zhujun24/fuxk-calc.git"
   },
   "keywords": [
-    "JS Calculate"
+    "JS Calculate",
+    "Floating Point Calculate",
+    "Float Calculate"
   ],
   "author": "zhujun24",
   "license": "MIT",

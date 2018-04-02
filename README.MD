@@ -24,4 +24,10 @@ console.log(fuxkCalc.add(13.3333, 1.8888888)); // 15.2221888
 // subtract
 console.log(fuxkCalc.subtract(13.3333, 1.8888888)); // 11.4444112
 console.log(fuxkCalc.subtract(0.2, 0.3)); // -0.1
+
+// multiply
+console.log(fuxkCalc.multiply(0.3, 0.13)); // 0.039
+
+// divide
+console.log(fuxkCalc.divide(0.3, 0.2)); // 1.5
 ```

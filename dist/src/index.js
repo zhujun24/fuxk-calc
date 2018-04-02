@@ -10,15 +10,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// js 浮点数加减精确加减计算
-
+// padStart & padEnd 无需判断 string.length > targetLength，调用方已经处理
 var padStart = function padStart(string, targetLength, padString) {
   // truncate if number or convert non-number to 0
   targetLength = targetLength >> 0;
   padString = String(typeof padString !== 'undefined' ? padString : ' ');
-  if (string.length > targetLength) {
-    return String(string);
-  }
+  // if (string.length > targetLength) {
+  //   return String(string);
+  // }
   targetLength = targetLength - string.length;
   if (targetLength > padString.length) {
     // append to original to ensure we are longer than needed
@@ -31,9 +30,9 @@ var padEnd = function padEnd(string, targetLength, padString) {
   // floor if number or convert non-number to 0
   targetLength = targetLength >> 0;
   padString = String(typeof padString !== 'undefined' ? padString : ' ');
-  if (string.length > targetLength) {
-    return String(string);
-  }
+  // if (string.length > targetLength) {
+  //   return String(string);
+  // }
   targetLength = targetLength - string.length;
   if (targetLength > padString.length) {
     // append to original to ensure we are longer than needed
@@ -75,10 +74,10 @@ var fuxkCalc = function () {
         // input invalid
         return false;
       }
-      if (this.typeCheck(a) && this.typeCheck(b)) {
-        // must have a floating point
-        return a + b;
-      }
+      // if (this.typeCheck(a) && this.typeCheck(b)) {
+      //   // must have a floating point
+      //   return a + b;
+      // }
 
       var intA = void 0;
       var intB = void 0;
@@ -121,10 +120,10 @@ var fuxkCalc = function () {
         // input invalid
         return false;
       }
-      if (this.typeCheck(a) && this.typeCheck(b)) {
-        // must have a floating point
-        return a - b;
-      }
+      // if (this.typeCheck(a) && this.typeCheck(b)) {
+      //   // must have a floating point
+      //   return a - b;
+      // }
 
       var shouldReverse = b > a;
       var delta = void 0;
@@ -176,6 +175,46 @@ var fuxkCalc = function () {
         }
       }
       return this.toFloat(shouldReverse ? '-' + delta : delta);
+    }
+  }, {
+    key: 'multiply',
+    value: function multiply(a, b) {
+      if (!this.safeCheck(a) || !this.safeCheck(b)) {
+        // input invalid
+        return false;
+      }
+      // if (this.typeCheck(a) && this.typeCheck(b)) {
+      //   // must have a floating point
+      //   return a * b;
+      // }
+
+      a = a.toString().replace(/0*$/, '');
+      b = b.toString().replace(/0*$/, '');
+      var floatA = a.split('.')[1] || '';
+      var floatB = b.split('.')[1] || '';
+
+      var pow = floatA.length + floatB.length;
+      return this.toInt(a.replace('.', '')) * this.toInt(b.replace('.', '')) / Math.pow(10, pow);
+    }
+  }, {
+    key: 'divide',
+    value: function divide(a, b) {
+      if (!this.safeCheck(a) || !this.safeCheck(b)) {
+        // input invalid
+        return false;
+      }
+      // if (this.typeCheck(a) && this.typeCheck(b)) {
+      //   // must have a floating point
+      //   return a / b;
+      // }
+
+      a = a.toString().replace(/0*$/, '');
+      b = b.toString().replace(/0*$/, '');
+      var floatA = a.split('.')[1] || '';
+      var floatB = b.split('.')[1] || '';
+
+      var pow = floatA.length - floatB.length;
+      return this.toInt(a.replace('.', '')) / this.toInt(b.replace('.', '')) / Math.pow(10, pow);
     }
   }]);
 

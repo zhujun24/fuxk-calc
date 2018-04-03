@@ -1,16 +1,19 @@
 {
   "name": "fuxk-calc",
-  "version": "0.0.3",
-  "description": "A js library for accurate math calculate.",
+  "version": "0.0.4",
+  "description": "A small, fast JavaScript library for arbitrary-precision decimal arithmetic.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhujun24/fuxk-calc.git"
   },
   "keywords": [
-    "JS Calculate",
-    "Floating Point Calculate",
-    "Float Calculate"
+    "arbitrary",
+    "precision",
+    "arithmetic",
+    "number",
+    "decimal",
+    "float"
   ],
   "author": "zhujun24",
   "license": "MIT",

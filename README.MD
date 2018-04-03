@@ -1,6 +1,6 @@
 # fuxk-calc [![npm package](https://img.shields.io/npm/v/fuxk-calc.svg?style=flat-square)](https://www.npmjs.org/package/fuxk-calc) [![NPM downloads](https://img.shields.io/npm/dm/fuxk-calc.svg?style=flat-square)](https://npmjs.org/package/fuxk-calc) [![Dependency Status](https://david-dm.org/zhujun24/fuxk-calc.svg?style=flat-square)](https://david-dm.org/zhujun24/fuxk-calc)
 
-A js library for accurate math calculate.
+A small, fast JavaScript library for arbitrary-precision decimal arithmetic.
 
 ## Install
 ```bash
